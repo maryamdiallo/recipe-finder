@@ -1,0 +1,117 @@
+/* Recipe List Styles */
+h2 {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 2rem;
+}
+
+/* Recipe container: Grid Layout for multiple items */
+.recipe-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    /* Slightly larger column minimum size */
+    gap: 30px;
+    /* Increased space between items */
+    justify-items: center;
+    /* Center the grid items */
+    margin-top: 10px;
+}
+
+/* Recipe item styles */
+.recipe-item {
+    background-color: #d35d0f;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Recipe title styling */
+.recipe-title {
+    font-size: 1.2rem;
+    color: #f39c12;
+    margin: 10px 0;
+}
+
+/* Recipe Image styling */
+.recipe-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* View Recipe Button styling */
+.view-recipe-button {
+    display: inline-block;
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    background-color: #3498db;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+.view-recipe-button:hover {
+    background-color: #2980b9;
+}
+
+/* Home page images grid (not affecting search results) */
+.image-grid {
+    text-align: center;
+    margin-top: 30px;
+    /* Add space above the home page image section */
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    justify-items: center;
+}
+
+.grid-item img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect for home page images */
+.grid-item img:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 16px 24px rgba(245, 42, 42, 0.2);
+}
+
+/* Body and layout settings */
+body {
+    font-family: 'Playfair Display', serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+    color: #f7f7f7;
+    line-height: 1.6;
+}
+
+main {
+    padding: 40px;
+}
+
+/* Media Query for Smaller Screens (Mobile) */
+@media (max-width: 800px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+        /* Stack images vertically on mobile */
+    }
+
+    .recipe-container {
+        grid-template-columns: 1fr;
+        /* Stack recipe items on mobile */
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+}

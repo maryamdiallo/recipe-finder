@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Taste of Teranga</title>
+    <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="cart.html" rel="" />
+    <link href="login.html" rel="" />
+    <link href="register.html" rel="" />
+    <link href="checkout.html" rel="" />
+    
+</head>
+
+<body>
+    <header>
+        <h1 class="green">
+            <span style="color: green;">Taste</span>
+            <span style="color: yellow;">Of</span>
+            <span style="color: red;">Teranga</span>
+        </h1>
+    </header>
+
+    <main>
+        <form method="POST" action="/">
+            <input type="text" name="search_query" placeholder="Search for recipes" value="{{ search_query }}">
+            <button type="submit">Search</button>
+        </form>
+
+        <!-- Check if recipes are available -->
+        {% if recipes %}
+        <h2>Results for "{{ search_query }}"</h2>
+        <div class="recipe-container">
+            {% for recipe in recipes %}
+            <div class="recipe-item">
+                <h3 class="recipe-title">{{ recipe.title }}</h3>
+                {% if recipe.image %}
+                <img src="{{ recipe.image }}" alt="Image of {{ recipe.title }}" class="recipe-image">
+                {% else %}
+                <img src="{{ url_for('static', filename='default-image.jpg') }}" alt="No image available"
+                    class="recipe-image">
+                {% endif %}
+                <a href="{{ url_for('view_recipe', recipe_id=recipe.id) }}" class="view-recipe-button">View Recipe</a>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <p>No recipes found for "{{ search_query }}". Try searching for another ingredient!</p>
+        {% endif %}
+    </main>
+
+    <footer>
+        <p>&copy; Taste of Teranga. All Rights Reserved.</p>
+    </footer>
+</body>
+
+</html>
